@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Marzban Inbound Generator</title>
+</head>
+<body>
+  <h2>🚀 ساخت JSON مرزبان</h2>
+  <input id="uuid" placeholder="UUID"><br>
+  <input id="port" type="number" placeholder="Port"><br>
+  <button onclick="gen()">Generate</button>
+  <pre id="out"></pre>
+  <script>
+    function gen() {
+      let uuid = document.getElementById('uuid').value;
+      let port = document.getElementById('port').value;
+      let json = {
+        type: "vless",
+        tag: "auto",
+        listen_port: parseInt(port),
+        users: [{ uuid }]
+      };
+      document.getElementById('out').textContent = JSON.stringify(json, null, 2);
+    }
+  </script>
+</body>
+</html>
